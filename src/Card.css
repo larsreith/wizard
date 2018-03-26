@@ -1,0 +1,44 @@
+.Card {
+    /* Original card size is 88x57 mm */
+    border-radius: 7px;
+    height: 196px;
+    width: 124px;
+    display: flex;
+    justify-content: center; /* align horizontal */
+    align-items: center; /* align vertical */
+    color: white;
+}
+
+.Card-blue {
+    background-color: midnightblue;
+}
+
+.Card-red {
+    background-color: red;
+}
+
+.Card-yellow {
+    background-color: yellow;
+}
+
+.Card-green {
+    background-color: green;
+}
+
+.Card-wizard {
+    background-color: black;
+    color: white;
+}
+
+.Card-jester {
+    background-color: white;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    color: black;
+}
+
+.Card-background {
+    background-image: url("images/card-background.png");
+    background-size: cover;
+}
