@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
-import Card from './Card';
+import CardHand from './CardHand';
 import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
+  
+
   render() {
+    console.log("App renders...");
     return (
       <div className="App">
         <header className="App-header">
@@ -14,14 +18,13 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <Card cardType="blue" value="12" />
-        <Card cardType="red" value="11" isUpsideDown={false} />
-        <Card cardType="yellow" value="13" isUpsideDown={false} />
-        <Card cardType="green" value="12" />
-        <Card cardType="wizard" />
-        <Card cardType="jester" />
+        <CardHand isPlayer={true} trump="blue" cards={[{cardType: "wizard"}, {cardType: "green", value: 13}, {cardType: "green", value: 12}, {cardType: "blue", value: 1}]}></CardHand>
       </div>
     );
+  }
+
+  componentDidMount() {
+    console.log("App did mount");
   }
 }
 

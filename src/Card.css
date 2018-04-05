@@ -9,6 +9,11 @@
     color: white;
 }
 
+.Card-valid-play:hover {
+    transform: translate(0px, -20px);
+    cursor: grab;
+}
+
 .Card-blue {
     background-color: midnightblue;
 }

@@ -11,12 +11,10 @@ const cardTypeRed    = "red";
 
 class Card extends Component {
   
-  displayValue;
-
   constructor(props) {
     super(props);
     this.state = {
-        cssClass: "Card " + this.getCSSClassForCardType(),
+        cssClass: "Card " + this.getCSSClassForCardType() + this.getCSSClassForValidPlay(),
         displayValue: this.getDisplayValue()
     }
   }
@@ -31,6 +29,11 @@ class Card extends Component {
         case cardTypeJester: return "Card-jester";
         default: return "";
     }  
+  }
+
+  getCSSClassForValidPlay() {
+    if(this.props.isValidPlay) return " Card-valid-play";
+    else return "";
   }
   
   getDisplayValue() {
