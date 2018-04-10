@@ -1,12 +1,16 @@
 .Card {
     /* Original card size is 88x57 mm */
-    border-radius: 7px;
-    height: 196px;
+    border-radius: 10px;
+    height: 190px;
     width: 124px;
     display: flex;
     justify-content: center; /* align horizontal */
     align-items: center; /* align vertical */
-    color: white;
+    background-size: cover;
+
+    border-color: #111111;
+    border-width: 0px;
+    border-style: solid;
 }
 
 .Card-valid-play:hover {
@@ -45,5 +49,24 @@
 
 .Card-background {
     background-image: url("images/card-background.png");
-    background-size: cover;
+}
+
+.Card-red-1 {
+    background-image: url("images/card-red-1.png");
+}
+
+.Card-red-2 {
+    background-image: url("images/card-red-2.png");
+}
+
+.Card-red-3 {
+    background-image: url("images/card-red-3.png");
+}
+
+.Card-red-4 {
+    background-image: url("images/card-red-4.png");
+}
+
+.Card-red-5 {
+    background-image: url("images/card-red-5.png");
 }

@@ -7,27 +7,24 @@ class CardHand extends Component {
   
   constructor(props) {
     super(props);
+    this.onSelectHandler = this.onSelectHandler.bind(this);
     this.state = {}
   }
-
-  isValidPlay(cardType) {
-      if (cardType === "wizard") return true;
-      if (cardType === "jester") return true;
-      if (this.props.cardType === null) return true;
-      if (cardType === this.props.trump) return true;
-      return false;
+ 
+  onSelectHandler(cardId) {
+    this.props.cardSelected(cardId);
   }
-  
+
   _renderPlayer() {
     var cards = this.props.cards.map((card) =>
-      <Card cardType={card.cardType} value={card.value} isValidPlay={this.isValidPlay(card.cardType)}/>
+      <Card key={card.id} cardId={card.id} cardType={card.cardType} value={card.value} isValid={card.isValid} onSelect={this.onSelectHandler}/>
     );
     return cards;
   }
 
   _renderOpponent() {
     var cards = this.props.cards.map((card) =>
-      <Card cardType={card.cardType} value={card.value} isValidPlay={this.isValidPlay(card.cardType)} isUpsideDown={!this.props.isPlayer}/>
+      <Card key={card.id} cardId={card.id} cardType={card.cardType} value={card.value} isValid={card.isValid} isUpsideDown={!this.props.isPlayer}/>
     );
     return cards;
   }
