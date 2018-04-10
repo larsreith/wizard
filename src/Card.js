@@ -13,6 +13,8 @@ class Card extends Component {
   
   constructor(props) {
     super(props);
+    this.selectCardHandler = this.selectCardHandler.bind(this);
+
     this.state = {
         cssClass: "Card " + this.getCSSClassForCardType() + this.getCSSClassForValidPlay(),
         displayValue: this.getDisplayValue()
@@ -20,9 +22,11 @@ class Card extends Component {
   }
 
   getCSSClassForCardType() {
+    //return "Card-red-2";
+
     switch (this.props.cardType) {
         case cardTypeBlue: return "Card-blue";
-        case cardTypeRed: return "Card-red";
+        case cardTypeRed: return "Card-red"; // + this.props.value;
         case cardTypeYellow: return "Card-yellow";
         case cardTypeGreen: return "Card-green";
         case cardTypeWizard: return "Card-wizard";
@@ -32,7 +36,7 @@ class Card extends Component {
   }
 
   getCSSClassForValidPlay() {
-    if(this.props.isValidPlay) return " Card-valid-play";
+    if(this.props.isValid) return " Card-valid-play";
     else return "";
   }
   
@@ -42,12 +46,11 @@ class Card extends Component {
       case cardTypeJester: return "N";
       default: return this.props.value;
     }
-
   }
 
   _render() {
     return (
-      <div className={this.state.cssClass}>
+      <div className={this.state.cssClass} onClick={this.selectCardHandler}>
         {this.state.displayValue}
       </div>
     );
@@ -65,15 +68,20 @@ class Card extends Component {
     if(this.props.isUpsideDown) return this._renderUpsideDown();
     else return this._render();
   }
+
+  selectCardHandler(event) {
+    if(this.props.isValid) this.props.onSelect(this.props.cardId);
+  }
 }
 
 Card.propTypes = {
     cardType: PropTypes.oneOf([cardTypeWizard, cardTypeJester, cardTypeBlue, cardTypeGreen, cardTypeRed, cardTypeYellow]),
-    isUpsideDown: PropTypes.bool
+    cardId: PropTypes.number,
+    isUpsideDown: PropTypes.bool,
+    isValid: PropTypes.bool,
   };
 
 Card.defaultProps = {
-    cardType: "Wizard",
     isUpsideDown: false
 };
 

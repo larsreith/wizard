@@ -1,5 +1,5 @@
 .CardHand {
     display: flex;
     justify-content: center;
-    background-color: hotpink;
+    transform: translateY(0px);
 }
