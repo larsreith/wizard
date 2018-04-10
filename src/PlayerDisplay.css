@@ -1,0 +1,7 @@
+.PlayerDisplay {
+
+}
+
+.PlayerDisplay.isActive {
+  color: red;
+}
