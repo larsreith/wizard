@@ -26,18 +26,13 @@ class DeckManager {
     var id = 1;
     var i;
 
-    // Create wizards
+    // Create wizards and jesters
     for(i = 1; i <= 4; i++) {
-      deck.push({id: id, cardType: "wizard"});
+      deck.push({id: id, cardType: "wizard", value: i});
+      deck.push({id: id, cardType: "jester", value: i});
       id++;
     }
     
-    // Create jesters
-    for(i = 1; i <= 4; i++) {
-      deck.push({id: id, cardType: "jester"});
-      id++;
-    }
-
     // Create color cards
     for(i = 1; i <= 13; i++) {
       deck.push({id: id, cardType: "red",  value: i}); id++;

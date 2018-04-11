@@ -128,7 +128,7 @@ class StackManager {
         continue;
       }
 
-      if(card.cardType === this.currentTrump) {
+      if(card.cardType === this.currentTrump.cardType) {
         if(card.value > trumpHighestValue) {
           trumpHighestIndex = i;
           trumpHighestValue = card.value;        

@@ -22,17 +22,19 @@ class Card extends Component {
   }
 
   getCSSClassForCardType() {
-    //return "Card-red-2";
+    let prefix;
 
     switch (this.props.cardType) {
-        case cardTypeBlue: return "Card-blue";
-        case cardTypeRed: return "Card-red"; // + this.props.value;
-        case cardTypeYellow: return "Card-yellow";
-        case cardTypeGreen: return "Card-green";
-        case cardTypeWizard: return "Card-wizard";
-        case cardTypeJester: return "Card-jester";
+        case cardTypeBlue:   prefix = "Card-blue-";   break;
+        case cardTypeRed:    prefix = "Card-red-";    break;
+        case cardTypeYellow: prefix = "Card-yellow-"; break;
+        case cardTypeGreen:  prefix = "Card-green-";  break;
+        case cardTypeWizard: prefix = "Card-wizard-"; break;
+        case cardTypeJester: prefix = "Card-jester-"; break;
         default: return "";
-    }  
+    } 
+
+    return prefix + this.props.value;
   }
 
   getCSSClassForValidPlay() {
@@ -50,8 +52,8 @@ class Card extends Component {
 
   _render() {
     return (
-      <div className={this.state.cssClass} onClick={this.selectCardHandler}>
-        {this.state.displayValue}
+      <div className={this.state.cssClass} onClick={this.selectCardHandler} >
+1
       </div>
     );
   }
